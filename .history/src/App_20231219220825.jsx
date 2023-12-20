@@ -6,15 +6,15 @@ export default function App(){
  
   const [todos, setTodos] = useState([]);
 
-  function addTodo(title){
+  function addTodo(){
     
-    setTodos(currentTodos => {
-      return [
-        ...currentTodos,
-        {id: crypto.randomUUID(),
-        title, completed: false},
-      ]
-    })
+    // setTodos(currentTodos => {
+    //   return [
+    //     ...currentTodos,
+    //     {id: crypto.randomUUID(),
+    //     title: newItem, completed: false},
+    //   ]
+    // })
 
   }
 
@@ -37,7 +37,7 @@ export default function App(){
 
   return (
         <>
-          <NewTodoForm onSubmit={addTodo} />
+          <NewTodoForm />
           <h1 className="header">Todo List</h1>
           <ul className="list">
           {todos.length === 0 && "Empty Liste"}

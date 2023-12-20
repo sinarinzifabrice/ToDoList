@@ -1,21 +1,22 @@
 import { useImperativeHandle, useState } from "react"
 import "./styles.css"
-import { NewTodoForm } from "./NewTodoForm";
 
 export default function App(){
- 
+  const [newItem, setnewItem] = useState("");
   const [todos, setTodos] = useState([]);
 
-  function addTodo(title){
-    
+  function handleSubmit(e){
+    e.preventDefault();
+
     setTodos(currentTodos => {
       return [
         ...currentTodos,
         {id: crypto.randomUUID(),
-        title, completed: false},
+        title: newItem, completed: false},
       ]
     })
 
+    setnewItem("");
   }
 
   function toggleTodo(id, completed){
@@ -37,7 +38,7 @@ export default function App(){
 
   return (
         <>
-          <NewTodoForm onSubmit={addTodo} />
+         
           <h1 className="header">Todo List</h1>
           <ul className="list">
           {todos.length === 0 && "Empty Liste"}
