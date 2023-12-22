@@ -3,7 +3,7 @@ import {useState} from 'react'
 
 
 
-export function NewTodoForm({onSubmit}) {
+export function NewTodoForm(props) {
   
   const [newItem, setnewItem] = useState("");
 
